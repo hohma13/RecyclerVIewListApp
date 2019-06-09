@@ -8,7 +8,7 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
-import io.reactivex.Flowable;
+
 
 @Dao
 public interface DAOInterface {
@@ -25,6 +25,4 @@ public interface DAOInterface {
     @Query("SELECT * FROM NumbersEntity WHERE id = :id")
     NumbersEntity getById(long id);
 
-    @Query("SELECT * FROM NumbersEntity")
-    Flowable<List<NumbersEntity>> getAllrx();
 }
