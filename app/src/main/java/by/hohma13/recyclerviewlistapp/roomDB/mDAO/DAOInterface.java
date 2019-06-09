@@ -12,10 +12,7 @@ import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
 public interface DAOInterface {
 
     @Insert
-    void insert(NumbersEntity numbersEntity);
-
-    @Insert
-    void update (NumbersEntity numbersEntity);
+    void insert (NumbersEntity numbersEntity);
 
     @Insert
     void delete (NumbersEntity numbersEntity);
