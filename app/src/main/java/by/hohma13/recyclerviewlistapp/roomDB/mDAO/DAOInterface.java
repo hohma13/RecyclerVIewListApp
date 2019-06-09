@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
@@ -16,8 +17,14 @@ public interface DAOInterface {
     @Insert
     void insert (NumbersEntity numbersEntity);
 
+    @Insert
+    void inserList(List<NumbersEntity> numbersEntities);
+
     @Delete
     void delete (NumbersEntity numbersEntity);
+
+    @Update
+    void update (NumbersEntity numbersEntity);
 
     @Query("SELECT * FROM NumbersEntity")
     List<NumbersEntity> getAll();

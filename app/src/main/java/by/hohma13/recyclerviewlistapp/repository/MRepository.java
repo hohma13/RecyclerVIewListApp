@@ -12,6 +12,7 @@ import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
 public class MRepository implements mRepositoryInterface {
     private static final String TAG = "createDB";
     List<NumbersEntity> list;
+    List<NumbersEntity> newlist;
     ArrayList<Integer> listInt;
     NumbersEntity numbersEntity;
     MDataBase mDataBase;
@@ -58,9 +59,18 @@ public class MRepository implements mRepositoryInterface {
 
     @Override
     public ArrayList<Integer> deleteItem(int itemDel) {
-        numbersEntity = daoInterface.getById(itemDel);
-        daoInterface.delete(numbersEntity);
+        list = daoInterface.getAll();
+        int count = list.size();
+        for (int i = itemDel; i <=count ; i++) {
+            numbersEntity = daoInterface.getById(i);
+            daoInterface.delete(numbersEntity);
+        }
+        for (int i = itemDel; i <count ; i++) {
+            numbersEntity.id = i;
+            numbersEntity.numbers=i;
+            daoInterface.insert(numbersEntity);
+        }
+
         return getDB();
     }
-
 }
