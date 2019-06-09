@@ -5,7 +5,7 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-import by.hohma13.recyclerviewlistapp.roomDB.mEntyti.NumbersEntity;
+import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
 
 public interface DAOInterface {
 
