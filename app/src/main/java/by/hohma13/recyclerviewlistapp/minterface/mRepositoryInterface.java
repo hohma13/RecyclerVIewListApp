@@ -3,9 +3,8 @@ package by.hohma13.recyclerviewlistapp.minterface;
 import java.util.ArrayList;
 
 public interface mRepositoryInterface {
-    void getDB();
-    void setDB();
-    ArrayList<Integer> getDBList();
-    int addItem(int itemNew);
-    void deleteAllTable();
+    void create();
+    ArrayList<Integer> getDB();
+    ArrayList<Integer> addItem(int itemNew);
+    ArrayList<Integer> deleteItem(int itemDel);
 }
