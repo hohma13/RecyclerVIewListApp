@@ -12,17 +12,20 @@ public class MPresenter implements mPresenterInterface {
 
     private mViewInterface mView;
     private mRepositoryInterface mRepositoryInterface;
-    private ArrayList<Integer> list;
 
     public MPresenter(mViewInterface mView) {
         this.mView = mView;
         this.mRepositoryInterface = new MRepository();
     }
 
+    public MPresenter() {
+        this.mRepositoryInterface = new MRepository();
+    }
+
     @Override
     public void create() {
-        list = mRepositoryInterface.getDB();
-        mView.showList(list);
+        mRepositoryInterface.getDB();
+        mView.showList(mRepositoryInterface.getDB());
     }
 
     @Override

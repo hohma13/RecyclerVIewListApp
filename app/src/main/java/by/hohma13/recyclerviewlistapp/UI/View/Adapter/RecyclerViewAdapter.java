@@ -1,5 +1,6 @@
 package by.hohma13.recyclerviewlistapp.UI.View.Adapter;
 
+import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +10,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import by.hohma13.recyclerviewlistapp.UI.Activity.MainActivity;
 import by.hohma13.recyclerviewlistapp.UI.View.Interface.RecyclerViewInterface;
-
+import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> implements RecyclerViewInterface {
 
@@ -53,6 +55,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     @Override
     public ArrayList<Integer> getListRVA() {
         return listRVADB;
+    }
+
+    @Override
+    public void deleteItem(ArrayList<Integer> list) {
+        MainActivity.delete(list);
     }
 
 }

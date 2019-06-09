@@ -8,7 +8,7 @@ public interface RecyclerViewInterface {
     void setItem(int item);
     int getItem(int item);
     ArrayList<Integer> getListRVA();
-//    void deleteItem();
+    void deleteItem(ArrayList<Integer> deleteNum);
 //    void updateItem();
 //    void deleteAllItems();
 

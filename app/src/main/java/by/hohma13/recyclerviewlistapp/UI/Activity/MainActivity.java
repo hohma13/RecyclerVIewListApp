@@ -1,6 +1,8 @@
 package by.hohma13.recyclerviewlistapp.UI.Activity;
 
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,13 +23,15 @@ public class MainActivity extends AppCompatActivity implements mViewInterface, V
 
     private static final String SAVED_RECYCLER_VIEW_STATUS_ID = "statuId";
     private static final String SAVED_RECYCLER_VIEW_DATASET_ID = "datasetId";
+    private static mPresenterInterface mPresenter;
 
-    private mPresenterInterface mPresenter;
 
-    private Button addItemBtn;
 
-    private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
+
+    private FloatingActionButton fab;
+
+    public RecyclerView recyclerView;
+    public RecyclerViewAdapter recyclerViewAdapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -35,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements mViewInterface, V
         setContentView(by.hohma13.recyclerviewlistapp.R.layout.activity_main);
 
         recyclerView = findViewById(R.id.rv);
-        addItemBtn = findViewById(R.id.addItemBtn);
+
+        fab = findViewById(R.id.floatingActionButton);
+
         mPresenter = new MPresenter(this);
 
         if (savedInstanceState != null) {
@@ -44,9 +50,11 @@ public class MainActivity extends AppCompatActivity implements mViewInterface, V
         } else {
             mPresenter.create();
         }
+        fab.setOnClickListener(this);
 
-        addItemBtn.setOnClickListener(this);
-
+    }
+    public static void delete(ArrayList<Integer> list){
+        mPresenter.listRestore(list);
     }
 
     @Override
@@ -68,10 +76,9 @@ public class MainActivity extends AppCompatActivity implements mViewInterface, V
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.addItemBtn:
+            case R.id.floatingActionButton:
                 mPresenter.addListItem(recyclerViewAdapter.getItem(0));
                 break;
         }
     }
-
 }

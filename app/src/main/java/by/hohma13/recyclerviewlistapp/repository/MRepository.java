@@ -8,6 +8,9 @@ import by.hohma13.recyclerviewlistapp.roomDB.AppDB;
 import by.hohma13.recyclerviewlistapp.roomDB.mDAO.DAOInterface;
 import by.hohma13.recyclerviewlistapp.roomDB.mDataBase.MDataBase;
 import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
 
 public class MRepository implements mRepositoryInterface {
     private static final String TAG = "createDB";
@@ -38,12 +41,13 @@ public class MRepository implements mRepositoryInterface {
 
     @Override
     public ArrayList<Integer> getDB() {
+
         listInt = new ArrayList<>();
         list = daoInterface.getAll();
         for(int i = list.size()-1; i>=0;i--) {
             listInt.add(list.get(i).numbers);
         }
-    return listInt;
+        return listInt;
     }
 
     @Override
