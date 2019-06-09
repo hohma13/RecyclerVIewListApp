@@ -1,5 +1,6 @@
 package by.hohma13.recyclerviewlistapp.roomDB.mDAO;
 
+import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -7,6 +8,7 @@ import java.util.List;
 
 import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
 
+@Dao
 public interface DAOInterface {
 
     @Insert
