@@ -8,9 +8,6 @@ import by.hohma13.recyclerviewlistapp.roomDB.AppDB;
 import by.hohma13.recyclerviewlistapp.roomDB.mDAO.DAOInterface;
 import by.hohma13.recyclerviewlistapp.roomDB.mDataBase.MDataBase;
 import by.hohma13.recyclerviewlistapp.roomDB.mEntity.NumbersEntity;
-import io.reactivex.Flowable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 
 public class MRepository implements mRepositoryInterface {
     private static final String TAG = "createDB";
