@@ -6,6 +6,5 @@ public interface mPresenterInterface {
     void create();
     void addListItem(int itemId);
     void deleteListItem(int itemId);
-    void deleteAll();
     void listRestore(ArrayList<Integer> integerArrayList);
 }
